@@ -30,7 +30,11 @@
 ![image](https://github.com/ab100777/vuecli/blob/master/img/%E8%B3%BC%E7%89%A9%E8%BB%8A.png)
 
 結帳：
-![image]()
+![image](https://github.com/ab100777/vuecli/blob/master/img/%E7%B5%90%E5%B8%B3.png)
+
+後臺介面：
+![image](https://github.com/ab100777/vuecli/blob/master/img/%E5%BE%8C%E5%8F%B0.png)
+
 ## Build Setup
 
 ``` bash
