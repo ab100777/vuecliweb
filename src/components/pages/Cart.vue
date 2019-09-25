@@ -4,9 +4,9 @@
     <div class="row justify-content-center negative-margin">
       <div class="col-sm-2 text-center text-info bg-warning checkout-step py-3">
         <h3>step1</h3>確認訂單
-        <br>填寫資料
+        <br />填寫資料
       </div>
-      <div class="col-sm-2 text-center text-primary checkout-step mx-3 py-3">
+      <div class="col-sm-2 text-center text-primary checkout-step py-3">
         <h3>step2</h3>確認付款
       </div>
     </div>
@@ -16,15 +16,16 @@
     >
       <div class="row justify-content-center negative-margin">
         <table class="table text-info bg-warning mb-0">
-          <thead>
+          <thead class="cart-head">
             <th></th>
-            <th>品名</th>
+            <th></th>
+            <th>商品</th>
             <th>數量</th>
             <th>單價</th>
           </thead>
           <tbody v-for="item in cart.carts" :key="item.id">
             <tr v-if="cart.carts">
-              <td class="align-middle">
+              <td class="align-middle" style="width:31px">
                 <button
                   type="button"
                   class="btn btn-outline-danger btn-sm"
@@ -33,7 +34,11 @@
                   <i class="far fa-trash-alt"></i>
                 </button>
               </td>
-              <td class="align-middle">
+              <td
+                :style="{backgroundImage:`url(${item.product.imageUrl})`}"
+                class="bg-cover cart-img"
+              ></td>
+              <td class="align-middle cart-title">
                 {{item.product.title}}
                 <div class="text-success" v-if="item.coupon">已套用優惠券</div>
               </td>
@@ -41,29 +46,31 @@
               <td class="align-middle text-right">{{item.final_total | currency}}</td>
             </tr>
           </tbody>
-          <tfoot>
+          <tfoot class="bg-primary">
             <tr>
+              <td></td>
               <td colspan="3" class="text-right">總計</td>
               <td class="text-right">{{cart.total | currency}}</td>
             </tr>
             <tr v-if="cart.final_total!==cart.total">
-              <td colspan="3" class="text-right text-success">折扣價</td>
-              <td class="text-right text-success">{{cart.final_total | currency}}</td>
+              <td></td>
+              <td colspan="3" class="text-right" style="font-size:20px;font-weight:bold">折扣價</td>
+              <td class="text-right" style="font-size:20px">{{cart.final_total | currency}}</td>
             </tr>
           </tfoot>
         </table>
-        <div class="input-group pb-3 input-group-sm bg-warning">
-          <input type="text" class="form-cintrol ml-3" v-model="coupon_code" placeholder="請輸入優惠碼" />
-          <div class="input-group-append">
+        <div class="text-info coupon-info mt-3 mb-1" style="font-size:20px;">輸入優惠券代碼：coupon 來享有折扣吧！</div>
+        <div class="input-group pb-3 input-group-sm">
+          <input type="text" class="form-cintrol coupon-input" v-model="coupon_code" placeholder="請輸入優惠碼" />
+          <div class="input-group-append coupon-btn">
             <button
               class="btn btn-outline-secondary text-info"
+              style="width:100%"
               type="button"
               @click="addCouponCode"
             >套用優惠碼</button>
           </div>
-          
         </div>
-        <div class="text-info coupon-info">每日限量優惠券：coupon</div>
       </div>
     </div>
     <div

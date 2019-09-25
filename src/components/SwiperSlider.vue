@@ -1,18 +1,18 @@
 <template>
   <div class="swiper-container">
     <div class="swiper-wrapper">
-      <div class="swiper-slide bg-cover">
+      <div class="swiper-slide">
         <img
           src="./img/0UV4eUX5XQwZCMWIybFtC7uR1ioGXlkNDLG-gQyxvoE.jpg"
           alt
-          class="bg-cover item-img"
+          class="bg-cover banner-img"
         />
       </div>
       <div class="swiper-slide bg-cover">
-        <img src="./img/NieR-Automata-1024x576.jpg" alt class="bg-cover item-img" />
+        <img src="./img/NieR-Automata-1024x576.jpg" alt class="bg-cover banner-img" />
       </div>
       <div class="swiper-slide bg-cover">
-        <img src="./img/7d92c44c72f0baad25f9fc0d8240248d.jpg" alt class="bg-cover item-img" />
+        <img src="./img/7d92c44c72f0baad25f9fc0d8240248d.jpg" alt class="bg-cover banner-img" />
       </div>
     </div>
     <!-- 如果需要分页器 -->

@@ -127,51 +127,6 @@
                   v-model="tempOrder.user.tel"
                 />
               </div>
-              <!-- <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="percent">折扣%數</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="percent"
-                    placeholder="請輸入折扣%數"
-                    v-model="tempCoupon.percent"
-                  >
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="due_date">到期日</label>
-                  <input
-                    type="date"
-                    class="form-control"
-                    id="due_date"
-                    placeholder
-                    v-model="tempCoupon.due_date"
-                  >
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="code">券號</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="code"
-                  placeholder="請輸入券號"
-                  v-model="tempCoupon.code"
-                >
-              </div>
-              <div class="form-group">
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    v-model="tempCoupon.is_enable"
-                    :true-value="1"
-                    :false-value="0"
-                    id="is_enabled"
-                  >
-                  <label class="form-check-label" for="is_enabled">是否啟用</label>
-                </div>
-              </div>-->
             </form>
           </div>
           <div class="modal-footer">

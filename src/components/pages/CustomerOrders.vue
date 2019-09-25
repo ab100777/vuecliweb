@@ -9,7 +9,7 @@
         dismissible
       >成功加入購物車</b-alert>
       <div class="row mt-5">
-        <div class="col-sm-4 mb-5 px-sm-3 px-0">
+        <div class="col-sm-3 mb-5 px-sm-3 px-0">
           <div
             class="list-group"
             style="font-weight: bolder;font-size: 24px;background-color: rgb(43, 42, 65)"
@@ -47,19 +47,26 @@
             >冒險</a>
           </div>
         </div>
-        <div class="col-sm-8">
+        <div class="col-sm-9">
           <div class="tab-content">
-            <div class="search-input mb-3">
-              <span class="text-secondary">搜尋</span>
+            <div class="search-input mb-3" style="display:flex">
+              <span class="text-secondary ml-auto">搜尋</span>
               <input type="text" name id class="bg-primary border-0" style v-model.trim="search" />
             </div>
-            <div class="text-primary text-center mt-5" v-if="searchTitle.length==0">
-              <h2>抱歉，找不到此產品</h2>
-            </div>
+            <div
+              class="text-primary text-center mt-5"
+              style="font-size:40px"
+              v-if="searchTitle.length==0"
+            >抱歉，找不到此產品</div>
             <div class="tab-pane active" id="all" role="tabpanel">
               <div class="row">
-                <div class="col-12 mb-4" v-for="item in searchTitle" :key="item.id">
-                  <div class="bg-cover item-img" :style="{backgroundImage:`url(${item.imageUrl})`}"></div>
+                <div class="col-sm-6 mb-4" v-for="item in searchTitle" :key="item.id">
+                  <a href="#" @click="getProduct(item.id)">
+                    <div
+                      class="bg-cover item-img img-hover"
+                      :style="{backgroundImage:`url(${item.imageUrl})`}"
+                    ></div>
+                  </a>
                   <div class="row">
                     <div class="col-sm-6">
                       <div
@@ -72,18 +79,12 @@
                       >{{item.price | currency}}</div>
                     </div>
                   </div>
-                  <div class="row no-gutters">
-                    <div class="col-7">
+                  <div class="row">
+                    <div class="col-12">
                       <button
                         class="item-btn btn btn-block btn-primary text-info rounded-0 py-3"
                         @click="addToCart(item.id)"
                       >加入購物車</button>
-                    </div>
-                    <div class="col-5">
-                      <button
-                        class="item-btn btn btn-block btn-primary text-info rounded-0 py-3"
-                        @click="getProduct(item.id)"
-                      >查看更多</button>
                     </div>
                   </div>
                 </div>
@@ -122,9 +123,17 @@
               </nav>
             </div>
             <div class="tab-pane" id="RPG" role="tabpanel">
-              <div class="row" v-for="item in searchTitle" :key="item.id">
-                <div class="col-12 mb-4" v-if="item.category=='角色扮演'">
-                  <div class="bg-cover item-img" :style="{backgroundImage:`url(${item.imageUrl})`}"></div>
+              <div class="row">
+                <div
+                  class="col-sm-6 mb-4"
+                  v-for="item in searchTitle"
+                  :key="item.id"
+                  v-if="item.category=='角色扮演'"
+                >
+                  <div
+                    class="bg-cover item-img img-hover"
+                    :style="{backgroundImage:`url(${item.imageUrl})`}"
+                  ></div>
                   <div class="row">
                     <div class="col-sm-6">
                       <div
@@ -137,27 +146,29 @@
                       >{{item.price | currency}}</div>
                     </div>
                   </div>
-                  <div class="row no-gutters">
-                    <div class="col-7">
+                  <div class="row">
+                    <div class="col-12">
                       <button
                         class="item-btn btn btn-block btn-primary text-info rounded-0 py-3"
                         @click="addToCart(item.id)"
                       >加入購物車</button>
-                    </div>
-                    <div class="col-5">
-                      <button
-                        class="item-btn btn btn-block btn-primary text-info rounded-0 py-3"
-                        @click="getProduct(item.id)"
-                      >查看更多</button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="tab-pane" id="shooting" role="tabpanel">
-              <div class="row" v-for="item in searchTitle" :key="item.id">
-                <div class="col-12 mb-4" v-if="item.category=='射擊'">
-                  <div class="bg-cover item-img" :style="{backgroundImage:`url(${item.imageUrl})`}"></div>
+              <div class="row">
+                <div
+                  class="col-sm-6 mb-4"
+                  v-for="item in searchTitle"
+                  :key="item.id"
+                  v-if="item.category=='射擊'"
+                >
+                  <div
+                    class="bg-cover item-img img-hover"
+                    :style="{backgroundImage:`url(${item.imageUrl})`}"
+                  ></div>
                   <div class="row">
                     <div class="col-sm-6">
                       <div
@@ -170,27 +181,29 @@
                       >{{item.price | currency}}</div>
                     </div>
                   </div>
-                  <div class="row no-gutters">
-                    <div class="col-7">
+                  <div class="row">
+                    <div class="col-12">
                       <button
                         class="item-btn btn btn-block btn-primary text-info rounded-0 py-3"
                         @click="addToCart(item.id)"
                       >加入購物車</button>
-                    </div>
-                    <div class="col-5">
-                      <button
-                        class="item-btn btn btn-block btn-primary text-info rounded-0 py-3"
-                        @click="getProduct(item.id)"
-                      >查看更多</button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="tab-pane" id="action" role="tabpanel">
-              <div class="row" v-for="item in searchTitle" :key="item.id">
-                <div class="col-12 mb-4" v-if="item.category=='動作'">
-                  <div class="bg-cover item-img" :style="{backgroundImage:`url(${item.imageUrl})`}"></div>
+              <div class="row">
+                <div
+                  class="col-sm-6 mb-4"
+                  v-for="item in searchTitle"
+                  :key="item.id"
+                  v-if="item.category=='動作'"
+                >
+                  <div
+                    class="bg-cover item-img img-hover"
+                    :style="{backgroundImage:`url(${item.imageUrl})`}"
+                  ></div>
                   <div class="row">
                     <div class="col-sm-6">
                       <div
@@ -203,27 +216,29 @@
                       >{{item.price | currency}}</div>
                     </div>
                   </div>
-                  <div class="row no-gutters">
-                    <div class="col-7">
+                  <div class="row">
+                    <div class="col-12">
                       <button
                         class="item-btn btn btn-block btn-primary text-info rounded-0 py-3"
                         @click="addToCart(item.id)"
                       >加入購物車</button>
-                    </div>
-                    <div class="col-5">
-                      <button
-                        class="item-btn btn btn-block btn-primary text-info rounded-0 py-3"
-                        @click="getProduct(item.id)"
-                      >查看更多</button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="tab-pane" id="adventure" role="tabpanel">
-              <div class="row" v-for="item in searchTitle" :key="item.id">
-                <div class="col-12 mb-4" v-if="item.category=='冒險'">
-                  <div class="bg-cover item-img" :style="{backgroundImage:`url(${item.imageUrl})`}"></div>
+              <div class="row">
+                <div
+                  class="col-sm-6 mb-4"
+                  v-for="item in searchTitle"
+                  :key="item.id"
+                  v-if="item.category=='冒險'"
+                >
+                  <div
+                    class="bg-cover item-img img-hover"
+                    :style="{backgroundImage:`url(${item.imageUrl})`}"
+                  ></div>
                   <div class="row">
                     <div class="col-sm-6">
                       <div
@@ -236,80 +251,17 @@
                       >{{item.price | currency}}</div>
                     </div>
                   </div>
-                  <div class="row no-gutters">
-                    <div class="col-7">
+                  <div class="row">
+                    <div class="col-12">
                       <button
                         class="item-btn btn btn-block btn-primary text-info rounded-0 py-3"
                         @click="addToCart(item.id)"
                       >加入購物車</button>
                     </div>
-                    <div class="col-5">
-                      <button
-                        class="item-btn btn btn-block btn-primary text-info rounded-0 py-3"
-                        @click="getProduct(item.id)"
-                      >查看更多</button>
-                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Modal -->
-    <div
-      class="modal fade"
-      id="productModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">{{product.title}}</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="row">
-              <div class="col-12">
-                <img :src="product.imageUrl" class="bg-cover" style="width: 100%;height: 400px" alt />
-              </div>
-              <div class="col-12">
-                <blockquote class="blockquote mt-3">
-                  <p class="mb-0">{{product.content}}</p>
-                </blockquote>
-                <div class="d-flex justify-content-between align-items-baseline">
-                  <div class="h5" v-if="!product.price">{{product.origin_price | currency}}</div>
-                  <div
-                    class="h6"
-                    style="text-decoration:line-through"
-                    v-if="product.price"
-                  >原價{{product.origin_price | currency}}</div>
-                  <div class="h5 text-danger" v-if="product.price">特價{{product.price | currency}}</div>
-                </div>
-              </div>
-            </div>
-            <select name class="form-control mt-3" v-model="product.num">
-              <option :value="num" v-for="num in 10" :key="num">選購 {{num}}套</option>
-            </select>
-          </div>
-          <div class="modal-footer">
-            <div class="text-muted text-nowrap mr-3">
-              小計
-              <strong>{{product.num * product.price}}</strong> 元
-            </div>
-            <button
-              type="button"
-              class="btn btn-primary"
-              @click="addToCart(product.id,product.num)"
-            >
-              <i class="fas fa-spinner fa-spin" v-if="product.id === status.loadingItem"></i>加到購物車
-            </button>
           </div>
         </div>
       </div>
@@ -385,7 +337,6 @@ export default {
         console.log(response);
         vm.status.loadingItem = "";
         vm.getCart();
-        $("#productModal").modal("hide");
         if (response.data.success) {
           vm.showDismissibleAlert = true;
         }

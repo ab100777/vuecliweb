@@ -3,20 +3,19 @@
     <div class="container" >
        <b-alert v-model="showDismissibleAlert" class="cart-alert" variant="success" dismissible>成功加入購物車</b-alert>
       <div class="row">
-        <div class="col-sm-7 mb-4">
-          <div class="bg-cover item-img" :style="{backgroundImage:`url(${product.imageUrl})`}"></div>
+        <div class="col-sm-7">
+          <div class="bg-cover commodity-img" :style="{backgroundImage:`url(${product.imageUrl})`}"></div>
         </div>
         <div class="col-sm-5">
           <h1 class="text-secondary">{{product.title}}</h1>
-          <h5 class="text-secondary">{{product.content}}</h5>
-          <div class="d-flex justify-content-between align-items-baseline mt-5" style>
-            <div class="h5" v-if="!product.price">{{product.origin_price | currency}}</div>
+          <div class="text-secondary" style="font-size:20px">{{product.content}}</div>
+          <div class="d-flex justify-content-between align-items-baseline mt-5">
             <div
-              class="h6 text-info"
+              class="text-info"
               style="text-decoration:line-through"
               v-if="product.price"
             >原價{{product.origin_price | currency}}</div>
-            <div class="h5 text-danger" v-if="product.price">特價{{product.price | currency}}</div>
+            <div class="text-danger" style="font-size:20px" v-if="product.price">特價{{product.price | currency}}</div>
           </div>
           <div class="row align-items-end">
             <div class="col-4">
@@ -24,10 +23,10 @@
                 <option :value="num" v-for="num in 10" :key="num">選購 {{num}}套</option>
               </select>
             </div>
-            <h6 class="col-4 text-info text-nowrap">
+            <div class="col-4 text-info text-nowrap" style="font-size:18px">
               總計
               <strong>{{product.num * product.price}}</strong> 元
-            </h6>
+            </div>
             <div class="col-4">
               <button
                 type="button"
