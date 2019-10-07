@@ -78,7 +78,7 @@ export default new VueRouter({
                     path: 'commodity/:id',
                     name: 'Commodity',
                     component: Commodity,
-                }
+                },
             ],
         }
     ]

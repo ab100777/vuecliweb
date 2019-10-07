@@ -18,22 +18,13 @@
         <table class="table text-info bg-warning mb-0">
           <thead class="cart-head">
             <th></th>
-            <th></th>
             <th>商品</th>
             <th>數量</th>
-            <th>單價</th>
+            <th class="text-right">單價</th>
+            <th></th>
           </thead>
           <tbody v-for="item in cart.carts" :key="item.id">
             <tr v-if="cart.carts">
-              <td class="align-middle" style="width:31px">
-                <button
-                  type="button"
-                  class="btn btn-outline-danger btn-sm"
-                  @click="removeCartItem(item.id)"
-                >
-                  <i class="far fa-trash-alt"></i>
-                </button>
-              </td>
               <td
                 :style="{backgroundImage:`url(${item.product.imageUrl})`}"
                 class="bg-cover cart-img"
@@ -44,6 +35,15 @@
               </td>
               <td class="align-middle">{{item.qty}}套</td>
               <td class="align-middle text-right">{{item.final_total | currency}}</td>
+              <td class="align-middle" style="width:31px">
+                <button
+                  type="button"
+                  class="btn btn-outline-danger btn-sm"
+                  @click="removeCartItem(item.id)"
+                >
+                  <i class="far fa-trash-alt"></i>
+                </button>
+              </td>
             </tr>
           </tbody>
           <tfoot class="bg-primary">
@@ -61,7 +61,12 @@
         </table>
         <div class="text-info coupon-info mt-3 mb-1" style="font-size:20px;">輸入優惠券代碼：coupon 來享有折扣吧！</div>
         <div class="input-group pb-3 input-group-sm">
-          <input type="text" class="form-cintrol coupon-input" v-model="coupon_code" placeholder="請輸入優惠碼" />
+          <input
+            type="text"
+            class="form-cintrol coupon-input"
+            v-model="coupon_code"
+            placeholder="請輸入優惠碼"
+          />
           <div class="input-group-append coupon-btn">
             <button
               class="btn btn-outline-secondary text-info"

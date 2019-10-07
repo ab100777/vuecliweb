@@ -351,7 +351,7 @@ export default {
         console.log(response);
         vm.isLoading = false;
       });
-    }
+    },
   },
   computed: {
     searchTitle() {

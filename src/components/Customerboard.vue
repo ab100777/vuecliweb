@@ -2,7 +2,7 @@
   <div>
     <Navbar></Navbar>
     <Alert></Alert>
-    <div style="background-color:rgb(43, 42, 65);padding-top:40px;padding-bottom:1px">
+    <div style="background-color:rgb(43, 42, 65);padding-top:40px;padding-bottom:1px;font-family: Noto Sans TC">
       <router-view></router-view>
     </div>
     <footer style="background-color:rgb(43, 42, 65);" class>
